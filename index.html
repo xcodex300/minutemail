@@ -3,29 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MinuteMail - Disposable Email</title>
+  <title>MinuteMail Inbox</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <h1>🎭 MinuteMail</h1>
-    <p class="tagline">Anonymous. Instant. Disposable.</p>
-    <div class="email-box">
-      <input type="text" id="email" readonly />
-      <button onclick="generateEmail()">🎲 New Email</button>
-    </div>
-    <div class="inbox">
-      <h2>📥 Inbox</h2>
-      <ul id="messageList">
-        <li>No messages yet...</li>
-      </ul>
-    </div>
-    <div class="footer">
-      <p>Stay anonymous. Use MinuteMail.</p>
-      <a href="#" class="affiliate">🔥 Get a VPN (Ad)</a> |
-      <a href="#" class="affiliate">🛡️ Secure Email (Affiliate)</a>
+    <h1>MinuteMail Inbox</h1>
+    <button id="generate">Generate Email</button>
+    <div id="emailBox" class="hidden">
+      <p>Your Temp Email:</p>
+      <div class="email-display">
+        <span id="email"></span>
+        <button id="copyBtn">Copy</button>
+      </div>
+      <p class="countdown">Expires in <span id="timer">600</span> seconds</p>
+      <h3>Inbox:</h3>
+      <ul id="inbox"></ul>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
