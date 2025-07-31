@@ -1,27 +1,63 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0e0e0e;
+  color: #f0f0f0;
 }
-.container {
-  max-width: 500px;
-  margin: auto;
+.topbar {
+  background: #1c1c1c;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+.card {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #04f8ab33;
+}
+.card h2 {
+  margin-bottom: 20px;
 }
 input {
-  padding: 10px;
-  width: 80%;
-  margin: 10px auto;
-  display: block;
+  padding: 12px;
+  width: 100%;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: white;
 }
 button {
-  background: #444;
-  color: #fff;
-  padding: 10px 15px;
+  background: #04f8ab;
   border: none;
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #02c890;
 }
 .hidden {
   display: none;
+}
+.inbox {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+}
+.message {
+  background: #1d1d1d;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 4px solid #04f8ab;
+  border-radius: 6px;
 }

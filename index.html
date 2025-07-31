@@ -2,25 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MinuteMail Inbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>MinuteMail Inbox</h1>
-    <button id="generate">Generate Email</button>
-    <div id="emailBox" class="hidden">
-      <p>Your Temp Email:</p>
-      <div class="email-display">
-        <span id="email"></span>
-        <button id="copyBtn">Copy</button>
-      </div>
-      <p class="countdown">Expires in <span id="timer">600</span> seconds</p>
-      <h3>Inbox:</h3>
-      <ul id="inbox"></ul>
+  <div class="topbar">
+    <span>📩 MinuteMail</span>
+    <span class="user-info">User Logged In</span>
+  </div>
+  <div class="inbox">
+    <h2>Your Inbox</h2>
+    <div class="message">
+      <h3>Welcome to MinuteMail!</h3>
+      <p>This is a preview of your temporary inbox. Real emails will show up here.</p>
+    </div>
+    <div class="message">
+      <h3>🔐 Secure Login Success</h3>
+      <p>You’ve successfully logged in using your phone number via OTP.</p>
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
