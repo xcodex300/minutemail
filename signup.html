@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up - MinuteMail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up with Phone Number</h2>
+    <input type="text" id="phone" placeholder="+1234567890" /><br/>
+    <div id="recaptcha-container"></div>
+    <button onclick="sendOTP()">Send OTP</button>
+
+    <div id="otp-box" class="hidden">
+      <input type="text" id="otp" placeholder="Enter OTP" /><br/>
+      <button onclick="verifyOTP()">Verify OTP</button>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyC1gX01mQ1-MtiG4Hw4573ndGdlhftEAW0",
+      authDomain: "minutemail-36694.firebaseapp.com",
+      projectId: "minutemail-36694",
+      storageBucket: "minutemail-36694.firebasestorage.app",
+      messagingSenderId: "182726117318",
+      appId: "1:182726117318:web:8591d46e44a28df46614c7",
+      measurementId: "G-DRMWXGWEH4"
+    };
+    firebase.initializeApp(firebaseConfig);
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-container", {
+      size: "normal",
+      callback: response => console.log("Recaptcha verified")
+    });
+
+    let confirmationResult;
+
+    function sendOTP() {
+      const phoneNumber = document.getElementById("phone").value;
+      firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
+        .then(result => {
+          confirmationResult = result;
+          document.getElementById("otp-box").classList.remove("hidden");
+          alert("OTP sent");
+        }).catch(error => {
+          alert("Error sending OTP: " + error.message);
+        });
+    }
+
+    function verifyOTP() {
+      const code = document.getElementById("otp").value;
+      confirmationResult.confirm(code).then(result => {
+        alert("Phone number verified! Redirecting to Inbox...");
+        window.location.href = "index.html";
+      }).catch(error => {
+        alert("Invalid OTP: " + error.message);
+      });
+    }
+  </script>
+</body>
+</html>
